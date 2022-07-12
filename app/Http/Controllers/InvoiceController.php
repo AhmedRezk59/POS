@@ -10,6 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['permission:read_invoices'])->only('index');
+        $this->middleware(['permission:create_invoices'])->only(['create', 'store']);
+        $this->middleware(['permission:update_invoices'])->only(['update', 'edit']);
+        $this->middleware(['permission:delete_invoices'])->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
