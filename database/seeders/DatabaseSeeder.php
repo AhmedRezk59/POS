@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LaratrustSeeder::class,
             UsersTableSeeder::class,
-            CategoryTableSeeder::class,
-            SizesTableSeeder::class,
-            ProductsTableSeeder::class,
-            InvoiceTableSeeder::class,
+            // CategoryTableSeeder::class,
+            // SizesTableSeeder::class,
+            // ProductsTableSeeder::class,
+            // InvoiceTableSeeder::class,
         ]);
     }
 }

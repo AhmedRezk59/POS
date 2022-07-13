@@ -24,8 +24,8 @@ class UsersTableSeeder extends Seeder
 
         $user->attachRole('super');
 
-        \App\Models\User::factory(50)->create()->each(function($user){
-            $user->attachRole('admin');
-        });
+        // \App\Models\User::factory(50)->create()->each(function($user){
+        //     $user->attachRole('admin');
+        // });
     }
 }

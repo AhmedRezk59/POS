@@ -17,6 +17,8 @@
 <script src="{{asset('printThis.js')}}"></script>
   </head>
   <body>
+    <a href="{{route('dashboard.invoices.edit' , $invoice)}}" class="button">@lang('site.back')</a>
+
     <section class="wrapper-invoice " id="DivIdToPrint">
       <!-- switch mode rtl by adding class rtl on invoice class -->
       <div class="invoice ">

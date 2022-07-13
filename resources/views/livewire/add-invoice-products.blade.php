@@ -41,7 +41,7 @@
          </div>
          <div class="col-xl-6 mb-3">
              <label for="validationTooltip01">{{ __('site.product') }}</label>
-             <select name="productID" style="padding:10px" id="select2Product" class="form-control select2"
+             <select wire:model="product_id" name="productID" style="padding:10px" class="form-control select2"
                  value="{{ old('productID', '') }}">
                  <option value="" selected disabled>@lang('site.select')</option>
                  @foreach ($products as $product)
@@ -76,9 +76,12 @@
             $('.select2').select2();
             Livewire.on('productsUpdated',function(){
                  $('.select2').select2();
-             });
-            $('.select2').on("select2:select", function (e) {
-            Livewire.emit( 'productID', $('.select2').select2().val());
+                });
+                $('.select2').on("select2:select", function (e) {
+                    Livewire.emit( 'productID', $('.select2').select2().val());
+                    setTimeout(() => {
+                      $('.select2').select2();
+                    }, 500);            
             });
         });
 

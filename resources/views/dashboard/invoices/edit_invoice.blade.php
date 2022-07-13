@@ -10,6 +10,6 @@
 @endsection
 
 @section('content')
-@livewire('invoice-products',['invoice' => $invoice])
-   @livewire('add-invoice-products',['invoice' => $invoice])
+    @livewire('invoice-products',['invoice' => $invoice])
+    @livewire('add-invoice-products',['invoice' => $invoice])
 @endsection
