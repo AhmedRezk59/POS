@@ -24,7 +24,7 @@ class StoreSizeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:1', 'max:55'],
+            'name' => ['required', 'string', 'min:1', 'max:55','unique:sizes,name'],
         ];
     }
 }

@@ -24,8 +24,7 @@ class UpdateSizeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:3', 'max:55','unique:sizes,name,' . $this->size->name],
-
+            'name' => ['required', 'string', 'min:3', 'max:55','unique:sizes,name,' . $this->size->id]
         ];
     }
 }
