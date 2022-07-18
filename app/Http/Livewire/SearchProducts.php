@@ -11,7 +11,10 @@ class SearchProducts extends Component
     use WithPagination;
 
     public $search = '';
+    public $amountNotSufficent = false;
+    public $amount = 2;
     protected $paginationTheme = 'bootstrap';
+
     protected $queryString = [
         'search' => ['except' => ''],
         'page' => ['except' => 1]
@@ -27,6 +30,9 @@ class SearchProducts extends Component
             'products' => Product::query()
             ->when($this->search, function ($query) {
                     return $query->where('name', 'like', "%{$this->search}%");
+            })
+            ->when($this->amountNotSufficent , function($query){
+                return $query->where('quantity' ,'<' ,$this->amount );
             })
             ->with(['category','size'])
             ->orderBy('id', 'desc')->paginate(8)

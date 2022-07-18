@@ -25,17 +25,6 @@
                      </span>
                  @enderror
              </div>
-
-             <div class="col-xl-6 mb-3">
-                 <label for="validationTooltip01">{{ __('site.total') }}</label>
-                 <input type="text" name="total" class="form-control" id="validationTooltip01"
-                     placeholder="{{ __('site.total') }}" value="{{ old('total',0) }}">
-                 @error('total')
-                     <span class="text-danger" role="alert">
-                         <strong>{{ $message }}</strong>
-                     </span>
-                 @enderror
-             </div>
          </div>
          
          <button class="btn btn-primary font-bold px-3" type="submit">{{ __('site.add') }}</button>

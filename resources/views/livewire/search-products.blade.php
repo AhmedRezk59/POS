@@ -5,6 +5,11 @@
             <input wire:model.debounce.300ms="search" type="search" class="form-control"
                 placeholder="@lang('site.search')....">
         </div>
+        <div class="flex mr-3">
+            <input wire:model.debounce.300ms="amount" type="search" placeholder="@lang('site.quantity')...."
+                class="form-control">
+        </div>
+        <input type="checkbox" wire:model="amountNotSufficent">
         @if (auth()->user()->hasPermission('create_products'))
             <a href="{{ route('dashboard.products.create') }}" class="button ml-3 float-left">@lang('site.add')<i
                     class="fa fa-plus ml-2"></i></a>
@@ -20,6 +25,7 @@
                     <th>@lang('site.price_bought') </th>
                     <th>@lang('site.price_sell') </th>
                     <th>@lang('site.category') </th>
+                    <th>@lang('site.quantity') </th>
                     <th>@lang('site.size') </th>
                     <th>@lang('site.action')</th>
                 </tr>
@@ -32,6 +38,7 @@
                         <td>{{ $product->price_bought }}</td>
                         <td>{{ $product->price_sell }}</td>
                         <td>{{ $product->category->name }}</td>
+                        <td>{{ $product->quantity }}</td>
                         <td>{{ $product->size->name }}</td>
                         <td style="width:250px">
                             @if (auth()->user()->hasPermission('update_products'))
@@ -42,11 +49,11 @@
                             @if (auth()->user()->hasPermission('delete_products'))
                                 <button type="button" class="button d-inline-block"
                                     style="background-color:#dc3545;border-color:#dc3545;" data-toggle="modal"
-                                    data-target="#exampleModalCenter{{$product->id}}"> @lang('site.delete') <i
+                                    data-target="#exampleModalCenter{{ $product->id }}"> @lang('site.delete') <i
                                         class="fa fa-trash"></i></button>
 
-                                <div class="modal fade" id="exampleModalCenter{{$product->id}}" tabindex="-1" role="dialog"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="exampleModalCenter{{ $product->id }}" tabindex="-1"
+                                    role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -61,7 +68,8 @@
                                                 </button>
                                             </div>
                                             <div class="modal-footer">
-                                                <form action="{{ route('dashboard.products.destroy', $product->id) }}"
+                                                <form
+                                                    action="{{ route('dashboard.products.destroy', $product->id) }}"
                                                     method="POST" class="d-inline-block">
                                                     @csrf
                                                     @method('delete')
@@ -80,7 +88,7 @@
 
                 @empty
                     <tr>
-                        <td class="font-bold" colspan="5">@lang('site.no_data_found')</td>
+                        <td class="font-bold" colspan="8">@lang('site.no_data_found')</td>
                     </tr>
                 @endforelse
             </tbody>

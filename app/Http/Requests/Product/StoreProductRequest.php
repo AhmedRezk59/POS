@@ -27,6 +27,7 @@ class StoreProductRequest extends FormRequest
             'name' => ['required' , 'string', 'unique:products,name'],
             'price_bought' => ['required' , 'numeric' ,'max:100000'],
             'price_sell' => ['required' , 'numeric' ,'max:100000'],
+            'quantity' => ['required' , 'numeric' ,'min:1'],
             'category_id' => ['required' , 'integer','exists:categories,id'],
             'size_id' => ['required' , 'integer','exists:sizes,id']
         ];

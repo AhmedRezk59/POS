@@ -15,6 +15,10 @@ class SizesTableSeeder extends Seeder
      */
     public function run()
     {
-        Size::factory(50)->create();
+        // Size::factory(50)->create();
+        $sizes = ['متر' , 'كجم'];
+        foreach($sizes as $size){
+            Size::create(['name' => $size]);
+        }
     }
 }

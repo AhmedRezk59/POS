@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->decimal('price_bought' ,8,2);
             $table->decimal('price_sell' ,8,2);
+            $table->smallInteger('quantity');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Size::class)->cascadeOnDelete();
             $table->timestamps();

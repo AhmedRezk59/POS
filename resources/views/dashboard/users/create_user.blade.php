@@ -108,8 +108,8 @@
                                 ]) id="{{ $model }}" role="tabpanel"
                                     aria-labelledby="{{ $model }}-tab">
                                     @foreach ($actions as $action)
-                                        <div>
-                                            <input type="checkbox" name="permissions[]"
+                                        <div class="">
+                                            <input type="checkbox"  name="permissions[]"
                                                 value="{{ $action }}_{{ $model }}" id="customCheck1">
                                             <label class="custom-control-label"
                                                 for="customCheck1">@lang("site.$action")</label>

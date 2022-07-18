@@ -25,7 +25,6 @@ class StoreInvoiceRequest extends FormRequest
     {
         return [
             'buyer' => ['required' , 'string','min:3','max:255'],
-            'total' => ['sometimes' , 'nullable' , 'numeric']
         ];
     }
 }

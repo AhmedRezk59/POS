@@ -109,7 +109,7 @@
                                 ]) id="{{ $model }}" role="tabpanel"
                                     aria-labelledby="{{ $model }}-tab">
                                     @foreach ($actions as $action)
-                                        <div>
+                                        <div class="">
                                             <input type="checkbox" name="permissions[]"
                                                 value="{{ $action }}_{{ $model }}" id="customCheck1"
                                                 @checked($user->hasPermission("{$action}_{$model}"))>

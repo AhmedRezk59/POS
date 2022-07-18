@@ -86,5 +86,6 @@ return [
     'invoices' => 'الفواتير',
     'sizes' => 'وحدات القياس',
     'size' => 'وحدة القياس',
+    'quantity_not_avaliable' => 'الكمية غير متوفرة'
 
 ];

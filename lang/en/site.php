@@ -50,6 +50,6 @@ return [
     'invoices' => 'invoices',
     'sizes' => 'Units',
     'size' => 'Unit',
-
+    'quantity_not_avaliable' => 'Quantity not avaliable'
 
 ];

@@ -12,7 +12,13 @@ class Invoice extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
+    public static function boot ()
+    {
+        parent::boot();
+        static::creating(function($model){
+            $model->user_id = auth()->user()->id;
+        });
+    }
     public function products () : BelongsToMany
     {
         return $this->belongsToMany(Product::class)->withPivot(['quantity' , 'price']);

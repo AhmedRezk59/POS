@@ -63,9 +63,9 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         if ($request->has('image')) {
-            $data = [...$request->validated(), 'image' => $request->image->hashName()];
+            $data = array_merge([ 'image' => $request->image->hashName()] , $request->validated());
         } else {
-            $data = [...$request->validated(), 'image' => $user->image];
+            $data = array_merge($request->validated(), ['image' => $user->image]);
         }
 
         if ($request->image) {

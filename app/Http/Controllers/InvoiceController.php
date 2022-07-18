@@ -47,10 +47,7 @@ class InvoiceController extends Controller
      */
     public function store(StoreInvoiceRequest $request)
     {
-        $invoice = Invoice::create([
-            ...$request->validated(),
-            'user_id' => auth()->user()->id
-        ]);
+        $invoice = Invoice::create($request->validated());
         session()->flash('success', __('site.added_successfully'));
         return to_route('dashboard.invoices.edit', $invoice->id);
     }

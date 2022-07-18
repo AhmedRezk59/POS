@@ -22,6 +22,7 @@ class ProductFactory extends Factory
             'price_sell' => 1100,
             'category_id' => rand(1,50),
             'size_id' => rand(1,50),
+            'quantity' => 10
         ];
     }
 }
